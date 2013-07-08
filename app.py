@@ -52,9 +52,9 @@ render = web.template.render('templates/',
 # Allow rendering of partials
 render._keywords['globals']['render'] = render_partial
 
-class Index:
+class Login:
     def GET(self):
-        return render.index()
+        return render.login()
 
 # Set a custom internal error message
 def internalerror():
