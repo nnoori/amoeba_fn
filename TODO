@@ -8,3 +8,11 @@ Nadia TODO
 # change the script to work with my FE not the examples
 # Investigate the momrender
 
+=====================================
+NNOORI - JULY 09 TODO
+=====================================
+#Add the user management part (create account, delete account, view profile)
+#Create the DB for the users accounts and the contents for the HTML articles as well as the results etc
+#Hook up the user profile managment to the fron-end
+#Look into connecting the Perl script to the system
+
