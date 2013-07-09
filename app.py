@@ -8,7 +8,14 @@ import config
 VERSION = "0.0.1"
 
 urls = (
-    r'/', 'Index',
+    '/', 'Index',
+    '/login', 'Login',
+    '/logout', 'Main',
+    '/about', 'About',
+    '/books_shelf', 'Books_Shelf',
+    '/create', 'Create',
+    '/account', 'Account',
+    '/contacts', 'Contacts'
     )
 
 app = web.application(urls, globals())
@@ -48,13 +55,42 @@ render_partial._keywords['globals']['render'] = render_partial
 render = web.template.render('templates/',
                              base='base',
                              cache=config.cache,
-                             globals=t_globals)
+                            globals=t_globals)
 # Allow rendering of partials
 render._keywords['globals']['render'] = render_partial
+#render = web.template.render('templates/')
+
+class Index:
+    def GET(self):
+        return render.index()
+
+class Main:
+    def GET(self):
+        return render.main()
 
 class Login:
     def GET(self):
         return render.login()
+
+class Create:
+    def GET(self):
+        return render.create()
+
+class About:
+    def GET(self):
+        return render.about()
+
+class Book_Shelf:
+    def GET(self):
+        return render.books_shelf()
+
+class Account:
+    def GET(self):
+        return render.account()
+class Contacts:
+    def GET(self):
+        return render.contacts()
+
 
 # Set a custom internal error message
 def internalerror():
