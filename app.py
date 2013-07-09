@@ -12,7 +12,7 @@ urls = (
     '/login', 'Login',
     '/logout', 'Main',
     '/about', 'About',
-    '/books_shelf', 'Books_Shelf',
+    '/book_shelf', 'Book_Shelf',
     '/create', 'Create',
     '/account', 'Account',
     '/contacts', 'Contacts'
@@ -82,7 +82,7 @@ class About:
 
 class Book_Shelf:
     def GET(self):
-        return render.books_shelf()
+        return render.book_shelf()
 
 class Account:
     def GET(self):
