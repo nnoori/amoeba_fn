@@ -1,8 +1,7 @@
 webpy-skeleton
 ==============
 
-Skeleton for a web.py application using twitter bootstrap.
-
+This project is built on Skeleton for a web.py application using twitter bootstrap that can be found here (https://github.com/jzellman/webpy-skeleton.git)
 Usage
 =======================
     mkdir my_webapp
