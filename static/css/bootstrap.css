@@ -6165,3 +6165,49 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+
+/*! These are added by NNOORI */
+.hero-unit-modified {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #add8e6;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.hero-unit-modified h1 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: inherit;
+}
+
+.hero-unit-modified li {
+  line-height: 30px;
+}
+
+.hero-unit-modified img {
+  background: url(/static/img/book_2.jpg)top no-repeat; 
+  position: relative; 
+  background-size: 100% 150%;
+}
+
+.hero-unit-modified h1 {
+  margin: 0; 
+  line-height: 1.25; 
+  font-size: 45px;
+  color: #fff; 
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.hero-unit-modifies p {
+  margin: 0; 
+  line-height: 1.25; 
+  color: #fff; 
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
