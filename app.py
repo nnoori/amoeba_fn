@@ -1,4 +1,8 @@
+
 from collections import defaultdict
+from logging import basicConfig, DEBUG
+from user_management.session_management import UserSession
+from user_management.user import app_user_management, get_render
 
 import web
 
@@ -9,12 +13,10 @@ VERSION = "0.0.1"
 
 urls = (
     '/', 'Index',
-    '/login', 'Login',
+     '/user', app_user_management,
     '/logout', 'Main',
     '/about', 'About',
     '/book_shelf', 'Book_Shelf',
-    '/create', 'Create',
-    '/account', 'Account',
     '/contacts', 'Contacts'
     )
 
@@ -22,23 +24,28 @@ app = web.application(urls, globals())
 
 # Allow session to be reloadable in development mode.
 if web.config.get('_session') is None:
-    session = web.session.Session(app, web.session.DiskStore('sessions'),
-                                  initializer={'flash': defaultdict(list)})
+    store   = web.session.DiskStore('sessions')
+    session = UserSession(app, store, initializer = \
+                      {'login': 0, 'username': '', 'user_type': 0})        
+
+
+    #session = web.session.Session(app, web.session.DiskStore('sessions'),
+    #                              initializer={'flash': defaultdict(list)})
 
     web.config._session = session
 else:
     session = web.config._session
 
-def add_flash(group, message):
-    session.flash[group].append(message)
-def flash_messages(group=None):
-    if not hasattr(web.ctx, 'flash'):
-        web.ctx.flash = session.flash
-        session.flash = defaultdict(list)
-    if group:
-        return web.ctx.flash.get(group, [])
-    else:
-        return web.ctx.flash
+#def add_flash(group, message):
+#    session.flash[group].append(message)
+#def flash_messages(group=None):
+#    if not hasattr(web.ctx, 'flash'):
+#        web.ctx.flash = session.flash
+#        session.flash = defaultdict(list)
+#    if group:
+#        return web.ctx.flash.get(group, [])
+#    else:
+#        return web.ctx.flash
 
 # Setup global template functions
 t_globals = dict(
