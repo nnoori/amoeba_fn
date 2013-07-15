@@ -36,16 +36,16 @@ if web.config.get('_session') is None:
 else:
     session = web.config._session
 
-#def add_flash(group, message):
-#    session.flash[group].append(message)
-#def flash_messages(group=None):
-#    if not hasattr(web.ctx, 'flash'):
-#        web.ctx.flash = session.flash
-#        session.flash = defaultdict(list)
-#    if group:
-#        return web.ctx.flash.get(group, [])
-#    else:
-#        return web.ctx.flash
+def add_flash(group, message):
+    session.flash[group].append(message)
+def flash_messages(group=None):
+    if not hasattr(web.ctx, 'flash'):
+        web.ctx.flash = session.flash
+        session.flash = defaultdict(list)
+    if group:
+        return web.ctx.flash.get(group, [])
+    else:
+        return web.ctx.flash
 
 # Setup global template functions
 t_globals = dict(
@@ -68,20 +68,25 @@ render._keywords['globals']['render'] = render_partial
 #render = web.template.render('templates/')
 
 class Index:
-    def GET(self):
+    
+    def GET(self, name=''):
+        render = get_render()
         return render.index()
 
-class Main:
-    def GET(self):
-        return render.main()
+    #def GET(self):
+    #    return render.index()
 
-class Login:
-    def GET(self):
-        return render.login()
+# class Main:
+#     def GET(self):
+#         return render.main()
 
-class Create:
-    def GET(self):
-        return render.create()
+# class Login:
+#     def GET(self):
+#         return render.login()
+
+# class Create:
+#     def GET(self):
+#         return render.create()
 
 class About:
     def GET(self):
