@@ -1,5 +1,5 @@
 * Add a fabric file
-* Add supervisord configuration
+* Add supervised configuration
 * Add nginx configuration
 =====================================
 NNOORI - Jule 08 TODO
@@ -13,6 +13,12 @@ NNOORI - JULY 09 TODO
 =====================================
 #Add the user management part (create account, delete account, view profile)
 #Create the DB for the users accounts and the contents for the HTML articles as well as the results etc
-#Hook up the user profile managment to the fron-end
+#Hook up the user profile management to the front-end
 #Look into connecting the Perl script to the system
 
+======================================
+NNOORI - JULY 15 TODO
+======================================
+#Cleaning up code for user management
+#Test website properly
+#Start adding the project module that will be handling users project contents
