@@ -109,5 +109,5 @@ class UserSession(Session):
         @type session:
             web.Session
         '''
-        
+        print bool(self.login)
         return bool(self.login)
