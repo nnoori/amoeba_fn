@@ -19,6 +19,7 @@ urls = (
     '/logout',         'logout',
     '/create',         'create_user',
     '/delete',         'delete_user',
+    '/login_again',    'login_again' 
 )
 app_user_management = web.application(urls, globals())
 database = UserDatabase()
@@ -98,16 +99,28 @@ class login:
         # determine if username and password are correct
         user_type = database.attempt_login(username, password)
         if user_type:
+            print 'User name and password are correct'
             web.ctx.session.attempt_login(username, user_type)
-        
+        else: 
+            print 'user name and password are not correct'
         # if successful then login_ok.html else login_error.html 
         if web.ctx.session.is_logged():
             # TODO: Wrong page?
             page = web.redirect('../')
         else:
-            page = web.seeother('/login')
+            page = web.seeother('/login_again')
         
         return page
+
+class login_again:
+
+    def GET(self):
+        '''
+        The login_again.
+        '''
+        
+        render = get_render()
+        return render.user.login_again()
 
 class logout:
     
