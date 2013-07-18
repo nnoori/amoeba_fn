@@ -11,7 +11,7 @@ import web
 urls = (
     '/user',                app_user_management,
     '/admin',               'admin',
-    '/',                'index',
+    '/',                    'index',
     '/about',               'About',
     '/book_shelf',          'Book_Shelf',
     '/contacts',            'Contacts'
@@ -24,7 +24,7 @@ session = UserSession(app, store, initializer = \
 class index:
     
     def GET(self, name=''):
-        render = get_render()
+        render = get_render('index')
         return render.index()
 
 class admin:

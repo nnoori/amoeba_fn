@@ -261,11 +261,13 @@ $def with (content)
      <script src="../static/js/bootstrap-carousel.js"></script>
   </head>
   <body>
-   
+  
+
 <!-- NAVBAR ================================================== -->
     <div class="navbar-wrapper">
       <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
       <div class="container">
+
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
             <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
@@ -308,25 +310,12 @@ $def with (content)
         </div><!-- /.navbar -->
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
-    <div class="container" style="padding-top: 60px;">
-    <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">User profile</li>
-              <li><a href="#">View</a></li>
-              <li><a href="#">Update</a></li>
-              <li><a href="#">Update</a></li>
-              <li><a href="#">Projects</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div>
-        <div class="span9">
-          $:content
-        </div>
-    </div>  
-  </div>  
-    <footer>
+
+    <div class="container">
+      
+      $:content
+
+      <footer>
         <p>&copy; Amoeba Information Systems, Inc 2013</p>
       </footer>  
     </div> <!-- /container -->

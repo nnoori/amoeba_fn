@@ -141,5 +141,9 @@ def get_render(template='common'):
         render = web.template.render('templates/', \
                                     base='base_main', \
                                     globals={'context': web.ctx.session})
+    elif template is 'index':
+        render = web.template.render('templates/common', \
+                                    base='base_index', \
+                                    globals={'context': web.ctx.session})
 
     return render
