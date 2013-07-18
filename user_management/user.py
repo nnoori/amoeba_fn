@@ -131,15 +131,15 @@ class logout:
 def get_render(template='common'):
     
     render = web.template.render('templates/common', \
-                                base='base', \
+                                base='base_user', \
                                 globals={'context': web.ctx.session})
     if template is 'admin':
         render = web.template.render('templates/admin', \
-                                    base='base', \
+                                    base='base_admin', \
                                     globals={'context': web.ctx.session})
     elif template is 'temp':
         render = web.template.render('templates/', \
-                                    base='common/base', \
+                                    base='base_main', \
                                     globals={'context': web.ctx.session})
 
     return render
