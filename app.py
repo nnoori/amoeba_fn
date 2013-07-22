@@ -65,6 +65,24 @@ def session_hook():
     web.ctx.session = session
 app.add_processor(web.loadhook(session_hook))
 
+# Configure HTTP error pages
+htmlout = web.template.render( 'templates/')
+
+def unauthorized( message='This page requires proper authorization to view.' ):
+  result = { 'title':'401 Authorization Required', 'message':message }
+  return web.unauthorized( htmlout.error( result ) )
+app.unauthorized = unauthorized
+
+def forbidden( message='Access is forbidden to the requested page.' ):
+  result = { 'title':'403 Forbidden', 'message':message }
+  return web.forbidden( htmlout.error( result ) )
+app.forbidden = forbidden
+
+def notfound( message='The server cannot find the requested page.' ):
+  result = { 'title':'404 Not Found', 'message':message }
+  return web.notfound( htmlout.error( result ) )
+app.notfound = notfound
+
 if __name__ == '__main__':
     basicConfig(level=DEBUG)
     app.run()

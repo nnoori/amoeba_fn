@@ -39,13 +39,27 @@ class create_user:
         '''
         The login form targets itself.
         '''
+        #=================================
+        vpass = form.regexp(r".{3,20}$", 'must be between 3 and 20 characters')
+        vemail = form.regexp(r".*@.*", "must be a valid email address")
+
+        register_form = form.Form(
+        form.Textbox("username", description="Username"),
+        form.Textbox("email", vemail, description="E-Mail"),
+        form.Password("password", vpass, description="Password"),
+        form.Password("password2", description="Repeat password"),
+        form.Button("submit", type="submit", description="Register"),
+        validators = [
+            form.Validator("Passwords did't match", lambda i: i.password == i.password2)]
+        )
+        #=================================
+
+        #username = web.input().username
+        #password = web.input().password
+        #email    = web.input().email
         
-        username = web.input().username
-        password = web.input().password
-        email    = web.input().email
-        
-        create_success = \
-            database.create_user(username, password, email)
+        #create_success = \
+        #    database.create_user(username, password, email)
 
         # if successful then login_ok.html else login_error.html 
         if create_success:
