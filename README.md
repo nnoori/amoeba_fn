@@ -1,5 +1,5 @@
-webpy-skeleton
-==============
+Front-end for Create project
+===========================
 
 This project is built on Skeleton for a web.py application using twitter bootstrap that can be found here (https://github.com/jzellman/webpy-skeleton.git)
 Usage
