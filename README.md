@@ -14,11 +14,9 @@ Usage
 
 Initial Configuration
 ========================
-#This step is optional 
-
-    pip install -r requirements.txt
+* Nothing is needed yet 
 
 Running the web server 
-====
+========================
     python app.py
 
