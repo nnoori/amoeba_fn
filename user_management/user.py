@@ -9,6 +9,7 @@ Created on Nov 8, 2011
 from database_management import UserDatabase
 from logging import getLogger
 import web
+from web import form
 
 LOGGER = getLogger(__name__)
 
@@ -25,49 +26,52 @@ app_user_management = web.application(urls, globals())
 database = UserDatabase()
 database.setup_database()
 
-class create_user:
+ #=================================
+vpass = form.regexp(r".{3,20}$", 'must be between 3 and 20 characters')
+vemail = form.regexp(r".*@.*", "must be a valid email address")
 
+register_form = form.Form(
+form.Textbox("username", description="Username"),
+form.Textbox("email", vemail, description="E-Mail"),
+form.Password("password", vpass, description="Password"),
+form.Password("password2", description="Repeat password"),
+form.Button("submit", type="submit", description="Register"),
+validators = [
+    form.Validator("Passwords did't match", lambda i: i.password == i.password2)]
+)
+        #=================================
+class create_user:
+   
     def GET(self):
         '''
         Create User Form
         '''
-        
+        f = register_form()
         render = get_render()
-        return render.user.create()
+        return render.user.create(f)
     
     def POST(self):
         '''
         The login form targets itself.
         '''
-        #=================================
-        vpass = form.regexp(r".{3,20}$", 'must be between 3 and 20 characters')
-        vemail = form.regexp(r".*@.*", "must be a valid email address")
-
-        register_form = form.Form(
-        form.Textbox("username", description="Username"),
-        form.Textbox("email", vemail, description="E-Mail"),
-        form.Password("password", vpass, description="Password"),
-        form.Password("password2", description="Repeat password"),
-        form.Button("submit", type="submit", description="Register"),
-        validators = [
-            form.Validator("Passwords did't match", lambda i: i.password == i.password2)]
-        )
-        #=================================
-
         #username = web.input().username
         #password = web.input().password
         #email    = web.input().email
+        f = register_form()
         
-        #create_success = \
-        #    database.create_user(username, password, email)
-
-        # if successful then login_ok.html else login_error.html 
-        if create_success:
-            page = web.seeother('/login')
+        if not f.validates():
+            page = web.seeother('/not_found')
+            return page
         else:
-            page = web.seeother('/create')
-        
-        return page
+            create_success = \
+            database.create_user(f['username'].value, f['password'].value, f['email'].value)
+            # if successful then login_ok.html else login_error.html 
+            if create_success:
+                page = web.seeother('/login')
+            else:
+                page = web.seeother('/create')
+            
+            return page
 
 class delete_user:
     

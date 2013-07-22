@@ -1,3 +1,4 @@
+$def with ( form )
 $var title = "Create user"
 <div id="status">
 $code
@@ -7,7 +8,13 @@ $code
     logged_status = "You are not logged in."
 $logged_status
 </div>
-<div id="form">
+
+<form method="POST">
+    $:form.render()
+</form>
+
+
+<!-- div id="form">
 <form action='#' method='POST'>
 	<b>Create User</b>
 	<table>
@@ -29,7 +36,7 @@ $logged_status
 		</td>
 		</tr>
 	</table>
-</form>
+</form -->
 </div>
 <div id="menu">
 <a href='/'>Index</a> | 
