@@ -6,12 +6,14 @@ Created on Nov 13, 2011
 from logging import basicConfig, DEBUG
 from user_management.session_management import UserSession
 from user_management.user import app_user_management, get_render
+from user_management.admin import app_admin_management
+ 
 import web
 
 urls = (
     '/user',                app_user_management,
-    '/admin',               'admin',
-    '/',                    'index',
+    '/admin',                app_admin_management,
+     '/',                    'index',
     '/about',               'About',
     '/book_shelf',          'Book_Shelf',
     '/contacts',            'Contacts'
@@ -27,16 +29,6 @@ class index:
         render = get_render('index')
         return render.index()
 
-class admin:
-    
-    def GET(self):
-        if web.ctx.session.is_admin():
-            render = get_render('admin')
-            page = render.admin()
-        else:
-            page = web.seeother('/')
-        return page
-
 class About:
     def GET(self, name=''):
         render = get_render('temp')
@@ -47,10 +39,6 @@ class Book_Shelf:
         render = get_render('temp')
         return render.book_shelf()
 
-class Account:
-    def GET(self):
-        render = get_render('temp')
-        return render.account()
 class Contacts:
     def GET(self):
         render = get_render('temp')

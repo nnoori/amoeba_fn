@@ -8,6 +8,8 @@ Created on Nov 8, 2011
 
 from database_management import UserDatabase
 from logging import getLogger
+from util.config import USER_TYPES
+
 import web
 from web import form
 
@@ -20,7 +22,9 @@ urls = (
     '/logout',         'logout',
     '/create',         'create_user',
     '/delete',         'delete_user',
-    '/login_again',    'login_again' 
+    '/login_again',    'login_again', 
+    '/profile', 'profile'
+    
 )
 app_user_management = web.application(urls, globals())
 database = UserDatabase()
@@ -116,17 +120,26 @@ class login:
         
         # determine if username and password are correct
         user_type = database.attempt_login(username, password)
-        if user_type:
-            print 'User name and password are correct'
+        print user_type
+        if user_type is USER_TYPES['admin']:
+            print 'User user is logged as administrator'
             web.ctx.session.attempt_login(username, user_type)
-        else: 
-            print 'user name and password are not correct'
-        # if successful then login_ok.html else login_error.html 
-        if web.ctx.session.is_logged():
-            # TODO: Wrong page?
-            page = web.redirect('../')
-        else:
-            page = web.seeother('/login_again')
+            if web.ctx.session.is_logged():
+                # redirect user to 'administration' page
+                page = web.redirect('../admin')
+            else:
+                #user is not logged for some reason - 
+                #redirect to login again until we figure the error pages
+                page = web.seeother('login_again')
+        elif user_type is USER_TYPES['user']: 
+            print 'user is logged as a regular user'
+            if web.ctx.session.is_logged():
+                #redirect the user to the 'user profile' page
+                page = web.redirect('/profile')
+            else:
+                #user is not logged for some reason - 
+                #redirect to login again until we figure the error pages
+                page = web.seeother('/login_again')
         
         return page
 
@@ -145,6 +158,13 @@ class logout:
     def GET(self):
         web.ctx.session.logout()
         return web.redirect('../')
+
+class profile:
+
+    def GET(self):
+
+        render = get_render()
+        return render.user.profile()
 
 def get_render(template='common'):
     

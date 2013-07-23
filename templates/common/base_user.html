@@ -316,20 +316,33 @@ $def with (content)
     <div class="container" style="padding-top: 60px;">
     <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav" style="background-color: transparent;">
-            <ul class="nav nav-list">
-              <li class="nav-header">User profile</li>
-              <li><a href="#">View</a></li>
-              <li><a href="#">Update</a></li>
-              <li><a href="#">Update</a></li>
-              <li><a href="#">Projects</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div>
-        <div class="span9">
+        $if context.is_logged():
+          $if context.username == 'admin':
+              <div class="well sidebar-nav" style="background-color: transparent;">
+                <ul class="nav nav-list">
+                  <li class="nav-header">Administration</li>
+                  <li><a href="#">View Users</a></li>
+                  <li><a href="#">Add User</a></li>
+                  <li><a href="#">Update User</a></li>
+                  <li><a href="#">Delete User</a></li>
+                </ul>
+              </div><!--/.well -->
+          $else:
+              <div class="well sidebar-nav" style="background-color: transparent;">
+                <ul class="nav nav-list">
+                  <li class="nav-header">User profile</li>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Delete</a></li>
+                  <li><a href="#">Update</a></li>
+                  <li><a href="#">Projects</a></li>
+                </ul>
+              </div><!--/.well -->
+         </div>
+         <div class="span9">
           $:content
+         </div>
         </div>
-    </div>  
+
   </div>  
 </div> <!-- /container -->
 <div class="container">
