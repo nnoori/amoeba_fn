@@ -64,6 +64,7 @@ class create_user:
         f = register_form()
         
         if not f.validates():
+            #Need to work on the error handling for the registeration
             page = web.seeother('/not_found')
             return page
         else:
@@ -133,11 +134,15 @@ class login:
                 #redirect the user to the 'user profile' page
                 #page = web.redirect('/profile')
                 render = get_render()
-                return render.profile(username)
+                page_url = '/profile?username='+username+'&userpass='+password
+
+                print page_url
+                page = web.seeother(page_url)
         else:
             #user is not logged for some reason - 
             #redirect to login again until we figure the error pages
             page = web.seeother('/login_again')
+
         return page
 
 class login_again:
@@ -158,10 +163,22 @@ class logout:
 
 class profile:
 
-    def GET(self,username=''):
+    def GET(self):
+
+        user_data = web.input()
+        #user = UserDatabase.is_user(user_data.username,user_data.password)
+        d = form.Form(
+           form.Textbox("username", description="Username", value=user_data.username),
+           form.Textbox("email", vemail, description="E-Mail",value=user_data.userpass)
+           )
 
         #Check is user is logged in to view profile 
         render = get_render()
+        return render.user.profile(d)
+
+    def POST():
+
+        render = web.get_render()
         return render.user.profile()
 
 def get_render(template='common'):

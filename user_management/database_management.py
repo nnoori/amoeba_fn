@@ -175,9 +175,54 @@ class UserDatabase():
         
         try:
             user = records[0]
-            user_type = user['user_type']
+            user_type = user['user_type']            
         except IndexError:
             LOGGER.warning('Invalid user/pass for user <%s>.' % username)
             user_type = 0
         
         return user_type
+
+    def is_user(self, username, password):
+        '''
+        Called when a user has attempted a username and password combination.  If
+        the user is successfully logged in, this will return a valid user-type; 
+        otherwise, it will return 0.
+        
+        @param username:
+            The username being attempted.
+        @type username:
+            String
+        
+        @param password:
+            The password that is associated with the aforementioned username.
+        @type password:
+            String
+        
+        @return:
+            The user-type if the login succeeds; otherwise, returns 0.
+        @rtype:
+            Integer (util.config.USER_TYPES)
+        '''
+        
+        username = sanitize(username)
+        password = hash(password)
+        
+        find_user_query = \
+            '''
+            SELECT * FROM users WHERE user = "%s" AND pass = "%s";
+            '''
+        records = self.db.query(find_user_query % (username, password,))
+        
+        try:
+            user = records[0]
+            user_data = { 'is_user': 'true', 'data': user }
+            print user_data['is_user']
+            print user_data['data']['user']
+        except IndexError:
+            LOGGER.warning('Invalid user/pass for user <%s>.' % username)
+            #user_type = 0
+            user_data = { 'is_user': 'false', 'data': '' }
+        
+        return user_data
+
+    

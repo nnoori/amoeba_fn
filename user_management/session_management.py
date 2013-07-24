@@ -111,3 +111,4 @@ class UserSession(Session):
         '''
         print bool(self.login)
         return bool(self.login)
+        
