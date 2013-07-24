@@ -1,12 +1,21 @@
 $var title = "Add User"
-<div>
-<center><h1>ADD PAGE</h1></center>
-<p> You are logged as $context.username </p>
-<div id="menu">
-<a href='/'>Index</a> | 
-<a href='/user/create'>Create User</a> | 
-<a href='/user/delete'>Delete User</a> | 
-<a href='/user/login'>Login</a> | 
-<a href='/user/logout'>Logout</a> |
-<a href='/admin'>Admin</a>
-</div>
+
+$if context.is_admin():
+	<div>
+	<center><h1>ADD USER PAGE</h1></center>
+	<p> You are logged as $context.username </p>
+	<div id="menu">
+	<a href='/'>Index</a> | 
+	<a href='/user/create'>Create User</a> | 
+	<a href='/user/delete'>Delete User</a> | 
+	<a href='/user/login'>Login</a> | 
+	<a href='/user/logout'>Logout</a> |
+	<a href='/admin'>Admin</a>
+	</div>
+$else: 
+    <div>
+	<center><h1>ADD USER PAGE</h1></center>
+	<p> You are logged not logged in as ADMIN </p>
+	</div>
+
+	

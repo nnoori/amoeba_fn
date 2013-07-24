@@ -293,19 +293,14 @@ $def with (content)
               </ul>
               $if context.is_logged():
                 <p class="navbar-text pull-right">
-                Logged in as <a href="#" class="navbar-link">$context.username</a>
+                Logged in as <a href="/admin/list_user" class="navbar-link">$context.username</a>
                 </p>
               $else:
                 <form class="navbar-form pull-right" action="user/login" method='GET'>
                  <!-- input class="span2" type="text" name="username" placeholder="User Name">
                  <input class="span2" type="password" name="password" placeholder="Password" -->
                   <button type="submit" class="btn btn-small btn-primary" value="Login">
-                  $code
-                    if context.is_logged():
-                      msg = "Hello %s."%context.username
-                    else:
-                      msg = "Login" 
-                  $msg              
+                  login             
                   </button>
                 </form>
             </div><!--/.nav-collapse -->
@@ -322,12 +317,13 @@ $def with (content)
                 <li><a href="/admin/list_user">View Users</a></li>
                 <li><a href="/admin/add_user">Add User</a></li>
                 <li><a href="/admin/delete_user">Delete User</a></li>
+                <li><a href="../user/logout">Logout</a></li>
              </ul>
           </div><!--/.well -->
         </div>
         <div class="span9">
           $:content
-         </div>
+        </div>
      </div>
   </div>  
 </div> <!-- /container -->

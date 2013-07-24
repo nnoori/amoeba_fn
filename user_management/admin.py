@@ -4,13 +4,14 @@ handling administrator operations
 from database_management import UserDatabase
 from logging import getLogger
 from util.config import USER_TYPES
-#import user_management.admin as app_admin
+
 import web
 from web import form
+import json
 
 LOGGER = getLogger(__name__)
 
-#web.config.debug = False                            # Required for sessions
+#web.config.debug = False         # Required for sessions
 
 urls = (
     '/list_user',      'list_user', # Admin dashboard 
@@ -26,33 +27,43 @@ app_admin_management = web.application(urls, globals())
 class add_user:
    
     def GET(self):
-        
-        render = get_render('admin')
-        return render.add_user()
-       
+        #check if the user is Admin
+        if web.ctx.session.is_admin(): 
+        	render = get_render('admin')
+        	return render.add_user()
+        else:
+        	return web.unauthorized()
+
 class delete_user:
     
     def GET(self):
-       
-	    render = get_render('admin')
-	    return render.delete_user()
-        
+        #Check if Admin
+        if web.ctx.session.is_admin():
+		    render = get_render('admin')
+		    return render.delete_user()
+        else:
+        	return web.unauthorized()
+
 class list_user:
 
     def GET(self):
-                
-        render = get_render('admin')
-        return render.list_user()
-        
+        #Check if Admin
+        if web.ctx. session.is_admin():       
+	        render = get_render('admin')
+	        return render.list_user()
+        else:
+        	return web.unauthorized()
+
 class user:
 
     def GET(self):
-        '''
-        The login_again.
-        '''
-        
-        render = get_render('admin')
-        return render.user()
+        #Check if Admin
+        if web.ctx. session.is_admin():       
+	        render = get_render('admin')
+	        return render.user()
+        else:
+        	return web.unauthorized()
+
 
 def get_render(template='common'):
     
@@ -71,5 +82,7 @@ def get_render(template='common'):
         render = web.template.render('templates/common', \
                                     base='base_index', \
                                     globals={'context': web.ctx.session})
-
     return render
+
+# Configure HTTP error pages
+

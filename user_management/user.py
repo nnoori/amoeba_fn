@@ -121,26 +121,23 @@ class login:
         # determine if username and password are correct
         user_type = database.attempt_login(username, password)
         print user_type
-        if user_type is USER_TYPES['admin']:
-            print 'User user is logged as administrator'
-            web.ctx.session.attempt_login(username, user_type)
-            if web.ctx.session.is_logged():
+        web.ctx.session.attempt_login(username, user_type)
+        if web.ctx.session.is_logged():
+            if user_type is USER_TYPES['admin']:
+
+                print 'User is logged as administrator'
                 # redirect user to 'administration' page
-                page = web.redirect('../admin')
-            else:
-                #user is not logged for some reason - 
-                #redirect to login again until we figure the error pages
-                page = web.seeother('login_again')
-        elif user_type is USER_TYPES['user']: 
-            print 'user is logged as a regular user'
-            if web.ctx.session.is_logged():
+                page = web.redirect('../admin/list_user')
+            elif user_type is USER_TYPES['user']: 
+                print 'User is logged as a regular user'
                 #redirect the user to the 'user profile' page
-                page = web.redirect('/profile')
-            else:
-                #user is not logged for some reason - 
-                #redirect to login again until we figure the error pages
-                page = web.seeother('/login_again')
-        
+                #page = web.redirect('/profile')
+                render = get_render()
+                return render.profile(username)
+        else:
+            #user is not logged for some reason - 
+            #redirect to login again until we figure the error pages
+            page = web.seeother('/login_again')
         return page
 
 class login_again:
@@ -161,8 +158,9 @@ class logout:
 
 class profile:
 
-    def GET(self):
+    def GET(self,username=''):
 
+        #Check is user is logged in to view profile 
         render = get_render()
         return render.user.profile()
 
