@@ -134,7 +134,8 @@ class login:
                 #redirect the user to the 'user profile' page
                 #page = web.redirect('/profile')
                 render = get_render()
-                page_url = '/profile?username='+username+'&userpass='+password
+                page_url = '/profile?username='+username
+                #+'&userpass='+password
 
                 print page_url
                 page = web.seeother(page_url)
@@ -167,14 +168,24 @@ class profile:
 
         user_data = web.input()
         #user = UserDatabase.is_user(user_data.username,user_data.password)
-        d = form.Form(
-           form.Textbox("username", description="Username", value=user_data.username),
-           form.Textbox("email", vemail, description="E-Mail",value=user_data.userpass)
-           )
+        print '==========='
+        user_record = database.is_user(user_data.username)
+        #Fix that tomorrow PLEASE
+        print database.is_user(user_data.username)
+        data_record = user_record['data']
+        if user_record['is_user']:
+            print data_record['user']
+            
+            d = form.Form(
+               form.Textbox("username", description="Username", value=user_record['data']['user']),
+               form.Textbox("email", vemail, description="E-Mail",value=user_record['data']['email'])
+               )
 
-        #Check is user is logged in to view profile 
-        render = get_render()
-        return render.user.profile(d)
+            #Check is user is logged in to view profile 
+            render = get_render()
+            return render.user.profile(d)
+        else:
+            return web.unauthorized()
 
     def POST():
 

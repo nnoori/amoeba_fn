@@ -278,22 +278,22 @@ $def with (content)
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
+                <!-- li class="active"><a href="/">Home</a></li -->
+                <li class="active"><a href="/about">About us</a></li>
                 <li><a href="/contacts">Contact</a></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-                <li class="dropdown">
+                <!-- li class="dropdown">
                   <a href="/" class="dropdown-toggle" data-toggle="dropdown">Books<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="user/create">Publish</a></li>
                     <li><a href="/book_shelf">Library</a></li>
                     <li><a href="/contacts">Contacts</a></li>
                   </ul>
-                </li>
+                </li -->
               </ul>
               $if context.is_logged():
                 <p class="navbar-text pull-right">
-                Logged in as <a href="#" class="navbar-link">$context.username</a>
+                Logged in as <a href='profile?username=$context.username' class="navbar-link">$context.username</a>
                 </p>
               $else:
                 <form class="navbar-form pull-right" action="user/login" method='GET'>

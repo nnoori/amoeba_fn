@@ -182,7 +182,8 @@ class UserDatabase():
         
         return user_type
 
-    def is_user(self, username, password):
+# def is_user(self, username, password):
+    def is_user(self, username):
         '''
         Called when a user has attempted a username and password combination.  If
         the user is successfully logged in, this will return a valid user-type; 
@@ -205,13 +206,14 @@ class UserDatabase():
         '''
         
         username = sanitize(username)
-        password = hash(password)
+        #password = hash(password)
         
         find_user_query = \
             '''
-            SELECT * FROM users WHERE user = "%s" AND pass = "%s";
+            SELECT * FROM users WHERE user = "%s";
             '''
-        records = self.db.query(find_user_query % (username, password,))
+        #old query SELECT * FROM users WHERE user = "%s" AND pass = "%s";
+        records = self.db.query(find_user_query % (username))
         
         try:
             user = records[0]

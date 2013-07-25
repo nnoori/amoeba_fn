@@ -278,16 +278,22 @@ $def with (content)
                 <li><a href="/contacts">Contacts</a></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
               </ul>
-              <form class="navbar-form pull-right" action="user/login" method='GET'>
-              <button type="submit" class="btn btn-small btn-primary" value="Login">
-              $code
-                if context.is_logged():
-                  msg = "Hello %s."%context.username
-                else:
-                  msg = "Login" 
-              $msg              
-             </button>
-            </form>
+              $if context.is_logged():
+                <p class="navbar-text pull-right">
+               
+                Logged in as <a href='user/profile?username=$context.username' class="navbar-link">$context.username</a>
+                </p>
+              $else:
+                <form class="navbar-form pull-right" action="user/login" method='GET'>
+                <button type="submit" class="btn btn-small btn-primary" value="Login">
+                  $code
+                    if context.is_logged():
+                      msg = "Hello %s."%context.username
+                    else:
+                      msg = "Login" 
+                  $msg              
+                  </button>
+                </form>
             </div><!--/.nav-collapse -->
           </div><!-- /.navbar-inner -->
         </div><!-- /.navbar -->
