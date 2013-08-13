@@ -19,9 +19,13 @@ start() {
 stop(){ 
         echo "$DATE: stopping fn_amoeba server"
         PID=$(ps -af |grep app.py |grep -v grep |awk '{print $2;}')
-	echo "Killing process $PID"
+	if [ "${#PID}" -gt "0" ] ; then
+        echo "$DATE: Killing process $PID"
         kill $PID
-        sleep 10 
+        sleep 10
+        else
+        echo "$DATE: service is not running"
+        fi 
 }
 # Check if app is running
 status(){
