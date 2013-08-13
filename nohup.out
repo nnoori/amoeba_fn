@@ -1,0 +1,210 @@
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+table should be Created
+http://0.0.0.0:8080/
+Traceback (most recent call last):
+  File "app.py", line 76, in <module>
+    app.run()
+  File "/usr/local/lib/python2.7/dist-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/local/lib/python2.7/dist-packages/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+table should be Created
+http://0.0.0.0:8080/
+Traceback (most recent call last):
+  File "app.py", line 76, in <module>
+    app.run()
+  File "/usr/local/lib/python2.7/dist-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/local/lib/python2.7/dist-packages/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /" - 200 OK
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/css/bootstrap.css" - 304 Not Modified
+74.14.229.213:54436 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/css/bootstrap-responsive.css" - 304 Not Modified
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/css/bootstrap-responsive.min.css" - 304 Not Modified
+74.14.229.213:54439 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/jquery.js" - 304 Not Modified
+74.14.229.213:54440 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap.min.js" - 304 Not Modified
+74.14.229.213:54437 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-dropdown.js" - 304 Not Modified
+74.14.229.213:54438 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-carousel.js" - 304 Not Modified
+74.14.229.213:54436 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-transition.js" - 304 Not Modified
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-alert.js" - 304 Not Modified
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/img/book_2.jpg" - 304 Not Modified
+74.14.229.213:54436 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/img/e-book_1.jpg" - 304 Not Modified
+74.14.229.213:54436 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-modal.js" - 304 Not Modified
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-scrollspy.js" - 304 Not Modified
+74.14.229.213:54438 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-tab.js" - 304 Not Modified
+74.14.229.213:54437 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-tooltip.js" - 304 Not Modified74.14.229.213:54440 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-popover.js" - 304 Not Modified
+
+74.14.229.213:54439 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-button.js" - 304 Not Modified
+74.14.229.213:54436 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-collapse.js" - 304 Not Modified
+74.14.229.213:54435 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/bootstrap-typeahead.js" - 304 Not Modified
+74.14.229.213:54440 - - [13/Aug/2013 14:29:53] "HTTP/1.1 GET /static/js/holder/holder.js" - 304 Not Modified
+74.14.229.213:54441 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /" - 200 OK
+74.14.229.213:54441 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/css/bootstrap.css" - 304 Not Modified
+74.14.229.213:54442 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/css/bootstrap-responsive.css" - 304 Not Modified
+74.14.229.213:54443 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/css/bootstrap-responsive.min.css" - 304 Not Modified
+74.14.229.213:54445 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/jquery.js" - 304 Not Modified
+74.14.229.213:54444 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap.min.js" - 304 Not Modified
+74.14.229.213:54446 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-dropdown.js" - 304 Not Modified
+74.14.229.213:54441 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-carousel.js" - 304 Not Modified
+74.14.229.213:54442 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-transition.js" - 304 Not Modified
+74.14.229.213:54443 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-alert.js" - 304 Not Modified
+74.14.229.213:54446 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/img/book_2.jpg" - 304 Not Modified
+74.14.229.213:54444 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/img/e-book_1.jpg" - 304 Not Modified
+74.14.229.213:54441 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-modal.js" - 304 Not Modified
+74.14.229.213:54445 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-scrollspy.js" - 304 Not Modified
+74.14.229.213:54442 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-tab.js" - 304 Not Modified
+74.14.229.213:54443 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-tooltip.js" - 304 Not Modified
+74.14.229.213:54446 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-popover.js" - 304 Not Modified
+74.14.229.213:54444 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-button.js" - 304 Not Modified
+74.14.229.213:54441 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-collapse.js" - 304 Not Modified
+74.14.229.213:54445 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/bootstrap-typeahead.js" - 304 Not Modified
+74.14.229.213:54442 - - [13/Aug/2013 14:30:04] "HTTP/1.1 GET /static/js/holder/holder.js" - 304 Not Modified
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+74.14.229.213:54541 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /" - 200 OK
+74.14.229.213:54541 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/css/bootstrap.css" - 304 Not Modified
+74.14.229.213:54544 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/css/bootstrap-responsive.css" - 304 Not Modified
+74.14.229.213:54545 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/css/bootstrap-responsive.min.css" - 304 Not Modified
+74.14.229.213:54546 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/jquery.js" - 304 Not Modified
+74.14.229.213:54542 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap.min.js" - 304 Not Modified
+74.14.229.213:54543 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-dropdown.js" - 304 Not Modified
+74.14.229.213:54541 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-carousel.js" - 304 Not Modified
+74.14.229.213:54544 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-transition.js" - 304 Not Modified
+74.14.229.213:54545 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-alert.js" - 304 Not Modified
+74.14.229.213:54545 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/img/book_2.jpg" - 304 Not Modified
+74.14.229.213:54544 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/img/e-book_1.jpg" - 304 Not Modified
+74.14.229.213:54544 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-modal.js" - 304 Not Modified
+74.14.229.213:54545 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-scrollspy.js" - 304 Not Modified
+74.14.229.213:54541 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-tab.js" - 304 Not Modified
+74.14.229.213:54543 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-tooltip.js" - 304 Not Modified
+74.14.229.213:54542 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-popover.js" - 304 Not Modified
+74.14.229.213:54546 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-button.js" - 304 Not Modified
+74.14.229.213:54544 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-collapse.js" - 304 Not Modified
+74.14.229.213:54545 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/bootstrap-typeahead.js" - 304 Not Modified
+74.14.229.213:54541 - - [13/Aug/2013 14:52:59] "HTTP/1.1 GET /static/js/holder/holder.js" - 304 Not Modified
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+table should be Created
+http://0.0.0.0:8080/
+Traceback (most recent call last):
+  File "app.py", line 76, in <module>
+    app.run()
+  File "/usr/local/lib/python2.7/dist-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/local/lib/python2.7/dist-packages/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/local/lib/python2.7/dist-packages/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+0.0 (1): 
+            CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,
+                                               user TEXT UNIQUE NOT NULL,
+                                               pass TEXT NOT NULL,
+                                               email TEXT UNIQUE NOT NULL,
+                                               user_type INTEGER NOT NULL );
+            
+74.14.229.213:54779 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /" - 200 OK
+74.14.229.213:54780 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/css/bootstrap.css" - 304 Not Modified74.14.229.213:54779 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/css/bootstrap-responsive.min.css" - 304 Not Modified
+
+74.14.229.213:54783 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/css/bootstrap-responsive.css" - 304 Not Modified
+74.14.229.213:54784 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/jquery.js" - 304 Not Modified
+74.14.229.213:54781 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/bootstrap.min.js" - 304 Not Modified
+74.14.229.213:54782 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/bootstrap-dropdown.js" - 304 Not Modified
+74.14.229.213:54779 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/bootstrap-carousel.js" - 304 Not Modified
+74.14.229.213:54783 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/bootstrap-transition.js" - 304 Not Modified
+74.14.229.213:54784 - - [13/Aug/2013 16:14:56] "HTTP/1.1 GET /static/js/bootstrap-alert.js" - 304 Not Modified
+74.14.229.213:54784 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/img/book_2.jpg" - 304 Not Modified
+74.14.229.213:54783 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/img/e-book_1.jpg" - 304 Not Modified
+74.14.229.213:54779 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-modal.js" - 304 Not Modified
+74.14.229.213:54781 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-tab.js" - 304 Not Modified
+74.14.229.213:54780 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-tooltip.js" - 304 Not Modified
+74.14.229.213:54782 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-scrollspy.js" - 304 Not Modified
+74.14.229.213:54784 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-popover.js" - 304 Not Modified
+74.14.229.213:54783 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-button.js" - 304 Not Modified
+74.14.229.213:54779 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-collapse.js" - 304 Not Modified
+74.14.229.213:54781 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/bootstrap-typeahead.js" - 304 Not Modified
+74.14.229.213:54780 - - [13/Aug/2013 16:14:57] "HTTP/1.1 GET /static/js/holder/holder.js" - 304 Not Modified

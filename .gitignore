@@ -35,3 +35,7 @@ nosetests.xml
 .pydevproject
 
 sessions/
+
+#Added by NN
+.swp
+.out
