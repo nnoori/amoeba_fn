@@ -7,13 +7,15 @@ from logging import basicConfig, DEBUG
 from user_management.session_management import UserSession
 from user_management.user import app_user_management, get_render
 from user_management.admin import app_admin_management
+from projects.projects import app_project_management 
  
 import web
 
 urls = (
     '/user',                app_user_management,
-    '/admin',                app_admin_management,
-     '/',                    'index',
+    '/admin',               app_admin_management,
+    '/project',             app_project_management,  
+     '/',                   'index',
     '/about',               'About',
     '/book_shelf',          'Book_Shelf',
     '/contacts',            'Contacts'
