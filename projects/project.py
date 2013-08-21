@@ -16,6 +16,7 @@ urls = (
     '/projects_list',  'projects_list',
     '/create_book',    'create_book',
     '/delete_book',    'delete_book',
+    '/edit_book',      'edit_book',
     '/books_list',     'books_list'
         
 )
@@ -93,6 +94,12 @@ class delete_book:
     def GET(self):
         render = get_render()
         return render.projects.delete_book()
+
+class edit_book:
+
+    def GET(self):
+        render = get_render()
+        return render.projects.edit_book()
 
 class books_list:
 

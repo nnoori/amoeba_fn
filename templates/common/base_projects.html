@@ -330,17 +330,23 @@ $def with (content)
           $else:
               <div class="well sidebar-nav" style="background-color: transparent;">
                 <ul class="nav nav-list">
-                  <li class="nav-header">User profile</li>
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Delete</a></li>
-                  <li><a href="#">Update</a></li>
-                  <li><a href="#">Projects</a></li>
+                  <li class="nav-header">Projects and Books</li>
+                  <li><a href="/projects/projects_list">Projects list</a></li>
+                  <li><a href="/projects/create_project">Create project</a></li>
+                  <li><a href="/projects/delete_project">Delete project</a></li>
+                  <li><a href="/projects/books_list">Books list</a></li>
+                  <li><a href="/projects/create_book">Create books</a></li>
+                  <li><a href="/projects/edit_book">Edit books</a></li>
+                  <li><a href="/projects/delete_book">Delete books</a></li>
                 </ul>
               </div><!--/.well -->
-         </div>
-         <div class="span9">
-          $:content
-         </div>
+        </div>
+        <div class="span9">
+          $if context.is_logged():
+            $:content
+          $else:
+            <p>Sorry! You need to be logged in before accessing this page</p>
+        </div>
         </div>
 
   </div>  
