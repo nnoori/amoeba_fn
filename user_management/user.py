@@ -23,6 +23,7 @@ urls = (
     '/create',         'create_user',
     '/delete',         'delete_user',
     '/login_again',    'login_again', 
+    '/plist',  'plist', 
     '/profile', 'profile'
     
 )
@@ -44,6 +45,12 @@ validators = [
     form.Validator("Passwords did't match", lambda i: i.password == i.password2)]
 )
         #=================================
+class plist:
+    def GET(self):
+        '''test for the page'''
+        render = get_render()
+        return render.user.plist()
+
 class create_user:
    
     def GET(self):
