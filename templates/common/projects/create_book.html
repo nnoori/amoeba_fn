@@ -1,6 +1,11 @@
+$def with ( form )
 $var title = "Create Book"
+
 <div class="hero-unit-modified">
         <h1>You can start creating your book here</h1>
         <p>this is a template to create a book.</p>
+        <form method="POST">
+    	$:form.render()
+		</form>
         <p><a href="/projects/books_list" class="btn btn-primary btn-large">Create &raquo;</a></p>
       </div>

@@ -24,6 +24,24 @@ app_project_management = web.application(urls, globals())
 #database = UserDatabase()
 #database.setup_database()
 
+book_info = form.Form( 
+    form.Textbox("Title", 
+        value="Enter text"),
+    form.Textbox("Publisher",
+        value="Enter text"),
+    form.Textbox("Description",
+        value="Enter text"),
+    form.Textbox("Contributers",
+        value="Enter text"),
+    form.Textbox("ISBN",
+        value="1234567890-0"),
+    form.Textbox("Year",
+        value="1999"),
+    form.Textbox("Cover",
+        value="Path for cover image file"),
+    form.Textarea("Contents",
+        value="Example: Part one - First part, Chapter 1 - First Chatper")) 
+
  #=================================
 #vpass = form.regexp(r".{3,20}$", 'must be between 3 and 20 characters')
 #vemail = form.regexp(r".*@.*", "must be a valid email address")
@@ -86,9 +104,11 @@ class projects_list:
 class create_book:
 
     def GET(self):
+        f = book_info()
         render = get_render()
-        return render.projects.create_book()
+        return render.projects.create_book(f)
 
+    
 class delete_book:
 
     def GET(self):
